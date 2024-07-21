@@ -1,5 +1,6 @@
 const express = require("express");
 const morgan = require("morgan");
+const cors = require('cors')
 
 const {
   globalErrHandler,
@@ -13,6 +14,15 @@ const productRouter = require("../routes/productRouter");
 const app = express();
 app.use(express.json());
 app.use(morgan("dev"));
+
+// cors
+const corsOptions = {
+  origin: ['http://localhost:5173', 'https://your-other-frontend.com'], // Allow these origins
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allow these methods
+  allowedHeaders: ['Content-Type', 'Authorization'], // Allow these headers
+};
+
+app.use(cors(corsOptions));
 
 // Routes
 app.use("/api/categories", categoryRouter);
