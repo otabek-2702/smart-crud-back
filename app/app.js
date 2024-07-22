@@ -17,7 +17,7 @@ app.use(morgan("dev"));
 
 // cors
 const corsOptions = {
-  origin: ['http://localhost:5173', 'https://your-other-frontend.com'], // Allow these origins
+  origin: ['http://localhost:5173', 'https://smart-crud.vercel.app', 'https://smart-crud.vercel.app'], // Allow these origins
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allow these methods
   allowedHeaders: ['Content-Type', 'Authorization'], // Allow these headers
 };
