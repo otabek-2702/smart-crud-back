@@ -7,11 +7,11 @@ const {
   deleteCategory
 } = require("../controller/categoryCtrl");
 const isAdmin = require("../middlewares/isAdmin");
-const isSeller = require("../middlewares/isSeller");
+const isAuthorised = require("../middlewares/isAuthorised");
 const categoryRouter = express.Router();
 
 categoryRouter.post("/", isAdmin, createCategory);
-categoryRouter.get("/", [isAdmin, isSeller], getCategories);
+categoryRouter.get("/", isAuthorised, getCategories);
 categoryRouter.get("/:categoryID", isAdmin, getCategoryById);
 categoryRouter.put("/:categoryID", isAdmin, updateCategory);
 categoryRouter.delete("/:categoryID", isAdmin, deleteCategory);
