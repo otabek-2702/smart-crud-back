@@ -16,7 +16,7 @@ productRouter.post("/", isSeller, createProduct);
 // productRouter.get("/", isAdmin, getProducts);
 productRouter.get("/", isAuthorised, getProducts);
 productRouter.get("/:productID", isAdmin, getProduct);
-productRouter.put("/:productID", isSeller, updateProduct); // Update product route
+productRouter.put("/:productID", isAdmin, updateProduct); // Update product route
 productRouter.delete("/:productID", isAuthorised, deleteProduct);
 
 module.exports = productRouter;
