@@ -12,7 +12,7 @@ const categoryRouter = express.Router();
 
 categoryRouter.post("/", isAdmin, createCategory);
 categoryRouter.get("/", isAuthorised, getCategories);
-categoryRouter.get("/:categoryID", isAuthorised, getCategoryById);
+categoryRouter.get("/:categoryID", isAdmin, getCategoryById);
 categoryRouter.put("/:categoryID", isAdmin, updateCategory);
 categoryRouter.delete("/:categoryID", isAdmin, deleteCategory);
 
