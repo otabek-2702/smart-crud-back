@@ -86,6 +86,9 @@ exports.updateCategory = AsyncHandler(async (req, res) => {
 exports.deleteCategory = AsyncHandler(async (req, res) => {
   const categoryID = req.params.categoryID;
 
+  // Delete products associated with the category
+  await Product.deleteMany({ category: categoryID });
+
   // Find the category by ID and delete
   const deletedCategory = await Category.findByIdAndDelete(categoryID);
 
